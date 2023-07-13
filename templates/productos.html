@@ -1,0 +1,23 @@
+{% extends "header.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+    <h1>Aca va el contenido de producto</h1>
+    <ul>
+        {% for producto in productos %}
+            <li>{{ producto.nombre }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Proveedores</h1>
+    <ul>
+        {% for proveedor in proveedor %}
+            <li>{{ proveedor.nombre }}</li>
+        {% endfor %}
+    </ul>
+    <h1>Categorías</h1>
+    <ul>
+        {% for categoria in categorias %}
+            <li>{{ categoria.nombre }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

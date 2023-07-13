@@ -1,0 +1,37 @@
+{% extends "header.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+    <h1>Aca va el contenido de producto</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p>Nombre:<input type="text" name="nombre"/></p>
+        <p>Precio: <input type="text" name="precio"/> </p>
+        <p>Stock:<input type="text" name="stock"/> </p>
+        <label for="categoria">Categoría:</label>
+        <select name="categoria" class="mb-3">
+          {% for categoria in categorias %}
+          <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+          {% endfor %}
+          <option value="nueva">Nueva categoría</option>
+        </select>
+        <br>
+        <label for="categoria">Nueva categoría:</label>
+        <input type="text" name="nueva_categoria"  class="mb-3" placeholder="Nombre de la nueva categoría">
+        <br>
+        <label for="proveedor">Proveedor:</label>
+        <select name="proveedor" class="mb-3">
+            {% for proveedores in proveedor %}
+            <option value="{{ proveedor.id }}">{{ proveedor.nombre }}</option>
+            {% endfor %}
+            <option value="nueva">Nuevo proveedor</option>
+          </select>
+          <br>
+          <label for="nuevo_proveedor">Nuevo proveedor:</label>
+          <input type="text" name="nuevo_proveedor" class="mb-3" placeholder="Nombre del nuevo proveedor">
+          <br>
+
+        <input type="submit" value="Enviar"/>
+
+    </form>
+{% endblock %}
